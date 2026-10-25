@@ -1,58 +1,65 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/nodal-logo-on-dark.svg">
-    <img src="assets/nodal-logo-on-light.svg" alt="NODAL" width="240">
-  </picture>
-</p>
+![Nodal](assets/nodal-banner.png)
 
-<h3 align="center">Privacy testing for Web3.</h3>
+# Nodal
 
-<p align="center">NODAL shows what a wallet reveals when it connects to Web3, starting with the data a dApp sends in its requests.</p>
+**Nodal makes the request layer of Web3 visible: which wallet data a dApp sends, to whom, and in which field.**
 
-<br>
+Network privacy protects the route. It does not change what an application chooses to put in the request. A wallet address in an analytics call, a transaction hash in an error report, an ENS name in a tracking pixel: these leaks are written by the app itself, they travel over any network, and the user never sees them. Nodal turns them into evidence an engineer can act on.
 
-## A year in the making. Built for what comes next.
+## Where Nodal sits
 
-NODAL began with one question: what does a wallet reveal when it connects to Web3? The Trace Lab is the first public layer of a broader effort to map privacy across network traffic, wallet requests, and on-chain activity.
+```
+   NETWORK LAYER                 REQUEST LAYER                     ON-CHAIN
+   who · when · from where       what the dApp sends               public ledger
 
-## Privacy has more than one layer
+  ┌───────────────────────┐    ┌────────────────────────────┐    ┌─────────────────┐
+  │  mixnets · VPNs · Tor │──► │  wallet  ·  host  ·  field │──► │  explorers      │
+  │  e.g. the Nym mixnet  │    │  ███  NODAL TRACE LAB  ███ │    │  indexers       │
+  └───────────────────────┘    └────────────────────────────┘    └─────────────────┘
+   protected by network          Nodal's scope                     public by design
+   privacy systems
+```
 
-Network metadata is one layer. Wallet requests are another. NODAL is building visibility into what a request reveals.
+A request can cross a mixnet untouched and still carry its user's wallet address in the body. Protecting one layer does not protect the next. Nodal focuses on the one the application controls.
 
-<p align="center">
-  <img src="assets/privacy-layers.svg" alt="Network, Request and On-chain layers, with Request marked as NODAL's current scope" width="860">
-</p>
+## Trace Lab — the first public layer
 
-## Repository
-
-| Repository | What it is | Status |
-|---|---|---|
-| [**Nodal**](https://github.com/nodalsi/Nodal) | Trace Lab: local-first analysis of captured dApp requests. Finds wallet addresses, transaction hashes and ENS names, and shows which host received each one, in which field. Includes a synthetic sample and Playwright wallet-flow examples. | In development |
+Trace Lab reads a captured session of a dApp, entirely in the browser, and names every wallet-related value that left it: the receiving host, the request, the exact field, and whether the evidence is direct or a heuristic guess. No wallet connection. No uploads. Every finding says how it could be wrong.
 
 <p align="center">
   <img src="assets/trace-lab-flow.png" alt="Trace Lab data-flow view of the synthetic sample trace" width="860">
 </p>
 
-## Links
+## The next layer is forming
 
-- **Source:** [github.com/nodalsi/Nodal](https://github.com/nodalsi/Nodal)
-- **Documentation:** [docs](https://github.com/nodalsi/Nodal/tree/main/docs)
-- **Security reports:** see [SECURITY.md](https://github.com/nodalsi/Nodal/blob/main/SECURITY.md)
-- **Website:** link added when it goes live
+**Privacy has more than one layer.** Network metadata is one. Wallet requests are another. Nym's mixnet is built for the first; Nodal is built to see the second.
 
-## Status
+The question Nodal is exploring next: when a wallet routes its RPC through a privacy network, such as Nym's [anon-rpc worker](https://github.com/nymtech/anon-rpc-worker) for the draft [anon-rpc specification](https://ethereum.github.io/anon-rpc/spec/), can a test prove which requests stayed on the private route, and which bypassed it?
 
-| Status | |
+`EXPLORING` · `NO INTEGRATION ANNOUNCED`
+
+## What's in this organization
+
+| Repository | What it is |
 |---|---|
-| **Live** | Nothing yet |
-| **In development** | Trace Lab, wallet-flow examples |
-| **Planned** | Privacy CI, Observed Data Manifest, NODAL Privacy Lab pilot |
-| **Exploring** | Privacy-routed RPC testing; combined network-and-request analysis |
+| [**Nodal**](https://github.com/nodalsi/Nodal) | Trace Lab: request-layer analysis of captured dApp traffic, with a synthetic sample and Playwright wallet-flow examples (injected wallet and Reown AppKit). |
 
-## Principles
+## Roadmap
 
-- **Evidence over claims.** Every finding names the request, the host and the field, and says how it could be wrong.
-- **Local-first.** Traces are read in the browser tab. No uploads, no wallet connection.
-- **Honest scope.** NODAL shows what was observed in a capture. It does not prove that an app never leaks data.
+| | Status |
+|---|---|
+| Trace Lab · wallet-flow examples | `IN DEVELOPMENT` |
+| Privacy CI · Observed Data Manifest · Nodal Privacy Lab | `PLANNED` |
+| Privacy-routed RPC testing (Nym mixnet, anon-rpc) | `EXPLORING` |
+| Combined network-and-request analysis | `EXPLORING` |
+| Live | Nothing yet |
 
-<sub>NODAL is independent. Projects named in its documentation, including Nym, are referenced for technical context only and do not endorse, fund, advise or collaborate with NODAL.</sub>
+## Start here
+
+- [Documentation](https://github.com/nodalsi/Nodal/tree/main/docs) · [Privacy across layers](https://github.com/nodalsi/Nodal/blob/main/docs/privacy-across-layers.md) · [What Nodal can and cannot show](https://github.com/nodalsi/Nodal/blob/main/docs/what-nodal-can-and-cannot-show.md)
+- [Reproduce the sample trace](https://github.com/nodalsi/Nodal/blob/main/docs/reproduce-the-sample.md) · [Roadmap](https://github.com/nodalsi/Nodal/blob/main/docs/roadmap.md)
+- [Report a vulnerability](https://github.com/nodalsi/Nodal/security/advisories/new)
+
+---
+
+<sub>© 2026 Nodal · [nodaltrace.si](https://nodaltrace.si) · [contact@nodaltrace.si](mailto:contact@nodaltrace.si) · Nodal is independent. Nym is referenced for technical context; no integration, partnership or endorsement exists.</sub>
