@@ -27,7 +27,7 @@ Network metadata is one layer. Wallet requests are another. NODAL is building vi
 
 | Repository | What it is | Status |
 |---|---|---|
-| [**Nodal**](https://github.com/Nodal-Trace/Nodal) | Trace Lab: local-first analysis of captured dApp requests. Finds wallet addresses, transaction hashes and ENS names, and shows which host received each one, in which field. Includes a synthetic sample and Playwright wallet-flow examples. | In development |
+| [**Nodal**](https://github.com/nodalsi/Nodal) | Trace Lab: local-first analysis of captured dApp requests. Finds wallet addresses, transaction hashes and ENS names, and shows which host received each one, in which field. Includes a synthetic sample and Playwright wallet-flow examples. | In development |
 
 <p align="center">
   <img src="assets/trace-lab-flow.png" alt="Trace Lab data-flow view of the synthetic sample trace" width="860">
@@ -35,9 +35,9 @@ Network metadata is one layer. Wallet requests are another. NODAL is building vi
 
 ## Links
 
-- **Source:** [github.com/Nodal-Trace/Nodal](https://github.com/Nodal-Trace/Nodal)
-- **Documentation:** [docs](https://github.com/Nodal-Trace/Nodal/tree/main/docs)
-- **Security reports:** see [SECURITY.md](https://github.com/Nodal-Trace/Nodal/blob/main/SECURITY.md)
+- **Source:** [github.com/nodalsi/Nodal](https://github.com/nodalsi/Nodal)
+- **Documentation:** [docs](https://github.com/nodalsi/Nodal/tree/main/docs)
+- **Security reports:** see [SECURITY.md](https://github.com/nodalsi/Nodal/blob/main/SECURITY.md)
 - **Website:** link added when it goes live
 
 ## Status
